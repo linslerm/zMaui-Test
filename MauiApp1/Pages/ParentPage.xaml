@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:MauiApp1.Pages.Views"
+             x:Class="MauiApp1.Pages.ParentPage"
+             xmlns:viewmodel="clr-namespace:ViewModels;assembly=ViewModels"
+             x:DataType="viewmodel:ParentViewModel"
+             Title="ParentPage">
+    <VerticalStackLayout>
+        <controls:ContentView2 CardTitle="adkjhsdkfjh"/>
+        <controls:ContentView2 CardTitle="kljljhkjhkjg"/>
+        <controls:ContentView2 CardTitle="kljljhkj"/>
+        <Entry Text="{Binding Text, Mode=TwoWay}"/>
+        <controls:ContentView2 CardTitle="{Binding Text}" x:Name="Test"/>
+    </VerticalStackLayout>
+</ContentPage>

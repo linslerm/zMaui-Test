@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1.Pages"
+    Shell.FlyoutBehavior="Flyout">
+    <ShellContent
+        Title="Sample"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="1MainPage" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="2HomePage" />
+    <ShellContent
+        Title="Home Markup"
+        ContentTemplate="{DataTemplate local:HomePage2}"
+        Route="3HomePageMarkup"/>
+    <ShellContent
+        Title="ParentPage"
+        ContentTemplate="{DataTemplate local:ParentPage}"
+        Route="4ParentPage" />
+    <ShellContent
+        Title="ParentPage Markup"
+        ContentTemplate="{DataTemplate local:ParentPage2}"
+        Route="5ParentPageMarkup" />
+
+
+</Shell>

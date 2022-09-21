@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Pages.HomePage"
+             xmlns:model="clr-namespace:Models;assembly=Models"
+             xmlns:viewmodel="clr-namespace:ViewModels;assembly=ViewModels"
+             x:DataType="viewmodel:HomeViewModel"
+             x:Name="Page"
+             Title="HomePage">
+    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+        <Label 
+            Text="{Binding Count}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            />
+        <Label 
+            Text="{Binding Title}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry 
+            Text="{Binding AddNumber, Mode=TwoWay}" 
+            Keyboard="Numeric"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            />
+        <Button 
+            Command="{Binding AddCommand}"
+            Text="Add Value"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            />        
+        <Button 
+            Command="{Binding SaveCommand}"
+            Text="Save"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            />
+        <Button 
+            Command="{Binding ResetCommand}"
+            Text="Reset"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            />
+        <CollectionView ItemsSource="{Binding Values}" HorizontalOptions="CenterAndExpand" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate  x:DataType="model:CounterModel" >
+                    <HorizontalStackLayout>
+                        <Label 
+                            Text="{Binding Count}" 
+                            VerticalOptions="Center" Padding="30,0,30,0"/>
+                        <Label 
+                            Text="{Binding CreatedString}"
+                            VerticalOptions="Center" Padding="30,0,30,0"/>
+                        <!--Command: {Binding Source={x:Reference <siteName>, Path=BindingContext.<CommandName>}} -->
+                        <Button 
+                             Padding="30,0,30,0"
+                            VerticalOptions="Center"
+                            Command="{Binding Source={x:Reference Page}, Path=BindingContext.DeleteCommand}" 
+                            CommandParameter="{Binding .}"
+                            Text="Remove Item"
+                            HeightRequest="40"
+                            />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+</ContentPage>
